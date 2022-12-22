@@ -2,7 +2,6 @@ name: GetWSLServer
 
 on:
   workflow_dispatch:
-  push:
     
 jobs:
   GetWSLServer:
