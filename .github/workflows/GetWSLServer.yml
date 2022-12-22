@@ -8,8 +8,20 @@ jobs:
   GetWSLServer:
     runs-on: ubuntu-latest
     steps:
-      - uses: suisei-cn/actions-download-file@v1.3.0
-        name: Download the file
+      - name: Download the file
+        uses: suisei-cn/actions-download-file@v1.3.0
         with: 
           url: https://update.code.visualstudio.com/latest/server-linux-x64/stable
           target: files/
+      - name: Commit
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "github-actions"
+          git add -A
+          git commit -m "Server file for update"
+        shell: bash
+      - name: Push
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: master
