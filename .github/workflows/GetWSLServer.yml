@@ -8,6 +8,8 @@ jobs:
   GetWSLServer:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
       - name: Download the file
         uses: suisei-cn/actions-download-file@v1.3.0
         with: 
