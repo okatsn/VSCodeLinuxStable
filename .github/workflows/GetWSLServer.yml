@@ -1,0 +1,15 @@
+name: GetWSLServer
+
+on:
+  workflow_dispatch:
+  push:
+    
+jobs:
+  GetWSLServer:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: suisei-cn/actions-download-file@v1.3.0
+        name: Download the file
+        with: 
+          url: https://update.code.visualstudio.com/latest/server-linux-x64/stable
+          target: files/
